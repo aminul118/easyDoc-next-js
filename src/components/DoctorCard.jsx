@@ -1,23 +1,23 @@
+import Link from "next/link";
 import React from "react";
 
-const DoctorCard = ({doctor}) => {
-    console.log(doctor);
+const DoctorCard = ({ doctor }) => {
+//   console.log(doctor);
+  const { doctorName, specialization, experience, rating, image, _id } = doctor;
   return (
-    <div>
-      <div className="card  shadow-2xl">
+    <Link href={`/doctors/${_id}`}>
+      <div className="card border bg-gray-100">
         <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
+          <img className="h-64 object-cover w-full" src={image} />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          
+          <h2 className="card-title">{doctorName}</h2>
+          <p>{specialization}</p>
+          <p>{experience}</p>
+          <p>{rating}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
